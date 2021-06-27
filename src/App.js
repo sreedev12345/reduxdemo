@@ -2,6 +2,7 @@ import React,{ useState } from 'react';
 import { connect } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from './Button';
+import Test from './Test';
 
 class App extends React.Component {
   render() {
@@ -9,6 +10,7 @@ class App extends React.Component {
     <div className="App">
       <Button />
        <h1>the parent count is {this.props.getButtonReducer ? this.props.getButtonReducer : -1}</h1>
+       <Test/>
     </div>
   );
 }
