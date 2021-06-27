@@ -1,3 +1,5 @@
+import Axios from 'axios';
+
 export const getButton = (params)=>{
   return  {
   		type : "GET_BUTTON_COUNT",
@@ -28,4 +30,24 @@ export const getUser = ()=>{
 			})
 		})
 	}
+}
+
+export const getData = ()=>async(dispatch)=>{
+	try {
+	 dispatch({
+		type : "pending",
+        status : false
+	})
+	const response = await Axios.get("https://restcountries.eu/rest/v2/all");
+	dispatch({
+		type : "GET_DATA",
+		payload : response,
+		status : true
+	})
+  } catch(error) {
+  	dispatch({
+  		type : "failed",
+  		error : error
+  	})
+  }
 }

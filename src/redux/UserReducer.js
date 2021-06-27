@@ -16,6 +16,11 @@ const getUserReducer = (state={},action)=>{
 		  	data : action.data,
 		  	status : action.status
 		  }
+		 case "GET_DATA":
+		  return {
+		  	data : action.payload,
+		  	status : action.status
+		  }
 		default:
 		  return state
 	}
